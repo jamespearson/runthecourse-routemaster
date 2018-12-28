@@ -146,8 +146,6 @@ class RouteMapView extends Component {
   }
 
   addBoundingBox(geoJSON) {
-    const center = TurfCenter(geoJSON).geometry.coordinates;
-
     const buffered = TurfBuffer(geoJSON, 5, { units: "miles" });
     const bbox = TurfBBox(buffered);
     const boundingBoxGeoJSON = TurnBBoxPolyGon(bbox);
@@ -302,6 +300,7 @@ class RouteMapView extends Component {
           <input type="file" onChange={this.handleFileOpen} />
 
           <button onClick={this.handleDownloadGeoJSON}>Dowload GeoJSON</button>
+          <button onClick={this.handleUpload}>Upload to Mapbox</button>
           <button onClick={this.handleDownload}>Download settings.json</button>
         </footer>
       </div>
