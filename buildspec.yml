@@ -1,0 +1,10 @@
+---
+phases:
+  build:
+    commands:
+      - "npm install"
+      - "npm build"
+    post_build:
+      commands:
+        - 'aws s3 sync --delete . "s3://routemaster.runthecourse.net"'
+version: 0.1
